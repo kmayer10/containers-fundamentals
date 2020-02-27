@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata: 
+  name: myapp-rs
+  labels: 
+    app: myapp
+
+spec: 
+  template: 
+    metadata: 
+      name: myapp
+      labels:
+        app: myapp
+    spec: 
+      containers: 
+        - name: thinknyx-savahnna
+          image: kulbhushanmayer/ericsson:bangalore-httpd-1.0
+      nodeSelector: 
+        app: myapp
+
+  replicas: 3
+  selector: 
+    matchLabels: 
+      app: myapp

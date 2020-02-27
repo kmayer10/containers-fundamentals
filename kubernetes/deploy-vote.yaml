@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata: 
+  name: vote
+  labels: 
+    app: vote
+
+spec: 
+  template: 
+    metadata: 
+      name: myapp
+      labels:
+        app: vote
+    spec: 
+      containers: 
+        - name: thinknyx-vote
+          image: thinknyx/vote:1.0
+      nodeSelector: 
+        app: myapp
+
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: vote

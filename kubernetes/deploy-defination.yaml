@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata: 
+  name: thinknyx
+  labels: 
+    app: thinknyx
+
+spec: 
+  template: 
+    metadata: 
+      name: myapp
+      labels:
+        app: thinknyx
+    spec: 
+      containers: 
+        - name: thinknyx-savahnna
+          image: nginx
+      nodeSelector: 
+        app: myapp
+
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: thinknyx

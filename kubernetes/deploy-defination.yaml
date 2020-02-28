@@ -15,9 +15,14 @@ spec:
     spec: 
       containers: 
         - name: thinknyx-savahnna
-          image: nginx
+          image: kulbhushanmayer/ericsson:bangalore-httpd-1.0
       nodeSelector: 
         app: myapp
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1 
 
   replicas: 1
   selector: 

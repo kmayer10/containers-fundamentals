@@ -28,3 +28,21 @@ spec:
   selector: 
     matchLabels: 
       app: thinknyx
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: thinknyx
+spec:
+  type: NodePort
+  selector:
+    app: thinknyx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 32123 
+

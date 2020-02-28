@@ -18,6 +18,11 @@ spec:
           image: kulbhushanmayer/ericsson:bangalore-httpd-1.0
       nodeSelector: 
         app: myapp
+      tolerations:
+        - key: "team"
+          operator: "Equal"
+          value: "thinknyx"
+          effect: "NoSchedule"
 
   strategy:
     type: RollingUpdate

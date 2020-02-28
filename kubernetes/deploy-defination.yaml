@@ -16,14 +16,21 @@ spec:
       containers: 
         - name: thinknyx-savahnna
           image: kulbhushanmayer/ericsson:bangalore-httpd-1.0
+          volumeMounts:
+            - name: htdocs
+              mountPath: /usr/local/apache2/htdocs
           resources:
             requests:
-              memory: "6400Mi"
-              cpu: "2500m"
+              memory: "64Mi"
+              cpu: "250m"
             limits:
-              memory: "12800Mi"
-              cpu: "5000m"
-
+              memory: "128Mi"
+              cpu: "500m"
+      volumes:
+        - name: htdocs
+          hostPath:
+            path: /var/application
+            type: Directory
       nodeSelector: 
         app: myapp
       tolerations:

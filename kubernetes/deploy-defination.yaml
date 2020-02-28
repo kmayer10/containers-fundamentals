@@ -16,6 +16,14 @@ spec:
       containers: 
         - name: thinknyx-savahnna
           image: kulbhushanmayer/ericsson:bangalore-httpd-1.0
+          resources:
+            requests:
+              memory: "6400Mi"
+              cpu: "2500m"
+            limits:
+              memory: "12800Mi"
+              cpu: "5000m"
+
       nodeSelector: 
         app: myapp
       tolerations:
